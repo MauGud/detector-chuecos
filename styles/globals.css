@@ -1,0 +1,109 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-gray-100;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-purple-600 rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-purple-700;
+}
+
+/* Prose styling for blog content */
+.prose h1, .prose h2 {
+  @apply text-gray-900 font-bold mt-8 mb-4 leading-tight;
+}
+.prose h3 {
+  @apply text-purple-700 font-semibold mt-6 mb-3 text-lg;
+}
+.prose p {
+  @apply text-gray-800 mb-4 leading-relaxed;
+}
+.prose ul, .prose ol {
+  @apply text-gray-800 mb-4 pl-6 space-y-2;
+}
+.prose li {
+  @apply list-disc text-gray-800;
+}
+.prose strong {
+  @apply text-gray-900 font-semibold;
+}
+.prose em {
+  @apply text-purple-600 italic;
+}
+.prose a {
+  @apply text-purple-600 hover:text-purple-700 underline transition-colors break-all;
+}
+.prose blockquote {
+  @apply border-l-4 border-purple-500 bg-purple-50 pl-4 py-2 italic text-purple-700 my-6;
+}
+.prose code {
+  @apply bg-gray-100 text-purple-700 px-2 py-1 rounded text-sm;
+}
+.prose pre {
+  @apply bg-gray-100 text-gray-800 p-4 rounded-lg overflow-x-auto my-4;
+}
+.prose img {
+  @apply rounded-lg shadow-md my-6 max-w-full h-auto;
+}
+.prose table {
+  @apply w-full border-collapse border border-gray-300 my-6;
+}
+.prose th {
+  @apply bg-gray-100 border border-gray-300 px-4 py-2 text-left font-semibold text-gray-900;
+}
+.prose td {
+  @apply border border-gray-300 px-4 py-2 text-gray-800;
+}
+.prose hr {
+  @apply border-gray-300 my-8;
+}
+
+/* Mejoras para el contenido del post */
+.post-content {
+  @apply text-gray-800 leading-relaxed;
+}
+
+/* Estilos específicos para links largos */
+.prose a[href*="http"] {
+  @apply break-all;
+}
+
+.prose a[href*="%20"] {
+  @apply break-all;
+}
+
+/* Para links muy largos, asegurar que se muestren correctamente */
+.prose a[href*="Protocolo"] {
+  @apply break-all max-w-full;
+}
+
+/* Asegurar que todos los links tengan el estilo correcto */
+.prose a:not([class]) {
+  @apply text-purple-600 hover:text-purple-700 underline transition-colors break-all;
+}
+
+.fade-in {
+  animation: fadeIn 0.5s ease-in-out forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
