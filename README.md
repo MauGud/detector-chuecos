@@ -92,3 +92,4 @@ chmod +x test-api.sh
 ---
 
 **¡Tu blog está ahora completamente automatizado con RSS y Zapier! 🎉**
+# detector-chuecos
