@@ -93,6 +93,45 @@
   @apply text-purple-600 hover:text-purple-700 underline transition-colors break-all;
 }
 
+/* Prevenir iconos no deseados en el logo */
+.logo-container img {
+  @apply border-0 outline-none;
+}
+
+.logo-container img::before,
+.logo-container img::after {
+  display: none !important;
+}
+
+/* Ocultar cualquier pseudo-elemento que pueda aparecer */
+.logo-container *::before,
+.logo-container *::after {
+  display: none !important;
+}
+
+/* Ocultar iconos de imágenes (refresh y expand) */
+.image-link-expand,
+.image-link-expand *,
+.restack-image,
+.view-image,
+.icon-container {
+  display: none !important;
+}
+
+/* Ocultar iconos específicos de Substack */
+.pencraft.pc-reset.icon-container,
+.pencraft.pc-reset.icon-container.restack-image,
+.pencraft.pc-reset.icon-container.view-image {
+  display: none !important;
+}
+
+/* Ocultar SVG de iconos en imágenes */
+.prose img + div,
+.prose figure > div:not(.image2-inset),
+.prose .image-link-expand {
+  display: none !important;
+}
+
 .fade-in {
   animation: fadeIn 0.5s ease-in-out forwards;
 }

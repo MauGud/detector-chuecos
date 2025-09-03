@@ -1,95 +1,135 @@
-# NEXCAR Blog - Automatizado con Substack + Zapier + RSS
+# 🛡️ Detector de Chuecos - Blog Automotriz para LLMs
 
-Landing page que se sincroniza automáticamente con tu blog de Substack usando RSS y webhooks de Zapier.
+> **Blog especializado en prevención de fraudes automotrices en México**  
+> **Optimizado para indexación y consumo por Large Language Models**
 
-## 🚀 Características
+## 🎯 **Propósito del Proyecto**
 
-- ✅ **Carga automática desde RSS** de Substack al iniciar
-- ✅ **Sincronización automática** con Substack vía Zapier
-- ✅ **API completa** con endpoints para RSS, posts y webhooks
-- ✅ **Diseño moderno** y responsive con Tailwind CSS
-- ✅ **Posts con contenido HTML** completo renderizado
-- ✅ **Notificaciones en tiempo real** de nuevos posts
-- ✅ **Sistema de fallback** si RSS no está disponible
-- ✅ **Optimizado para SEO** y rendimiento
+Este blog automatizado proporciona contenido especializado sobre:
+- **Validación de documentos vehiculares** (REPUVE, AMDA, SAT)
+- **Detección de fraudes automotrices** en México
+- **Guías técnicas** para compradores de seminuevos
+- **Prevención de estafas** en el mercado automotriz
 
-## 📦 Instalación
+## 🚀 **Características Técnicas**
 
-1. **Clonar y configurar:**
-```bash
-git clone <tu-repo>
-cd nexcar-blog
-npm install
-```
+### **Sincronización Automática**
+- ✅ **RSS Feed**: Sincronización automática con Substack
+- ✅ **Contenido Completo**: Posts con contenido HTML completo
+- ✅ **Tiempo Real**: Actualización automática cada 30 segundos
 
-2. **Ejecutar en desarrollo:**
-```bash
-npm run dev
-```
+### **API REST para LLMs**
+- 📡 **`/api/llm/posts`** - Posts optimizados para LLMs
+- 🔍 **`/api/llm/analyze`** - Análisis de contenido
+- 📚 **`/api/llm/docs`** - Documentación de API
+- 📊 **`/api/llm/status`** - Estado del sistema
+- 📝 **`/api/llm/citations`** - Generación de citas
+- ✅ **`/api/llm/citable`** - Verificación de citabilidad
 
-3. **Deploy en Vercel:**
-```bash
-npm run build
-# Subir a GitHub y conectar con Vercel
-```
+### **SEO y Estructura Optimizada**
+- 🏷️ **Schema.org**: Datos estructurados completos
+- 🔍 **Meta Tags**: Optimización para motores de búsqueda
+- 📱 **Responsive**: Diseño adaptativo
+- ⚡ **Performance**: Carga rápida y eficiente
 
-## 🔧 Configuración de Zapier
+## 🛠️ **Tecnologías**
 
-1. **Crear Zap con estos pasos:**
-   - Trigger: RSS by Zapier → `https://nexcar.substack.com/feed`
-   - Action: Webhooks by Zapier → `https://tu-url.vercel.app/api/webhook`
+- **Framework**: Next.js 14.0.0
+- **Styling**: Tailwind CSS + Typography
+- **RSS**: xml2js para parsing
+- **Icons**: Lucide React
+- **Deployment**: Vercel
 
-2. **Configurar webhook con estos campos:**
+## 📊 **Estructura de Datos**
+
+### **Posts Structure**
 ```json
 {
-  "title": "{{1. Title}}",
-  "link": "{{1. Link}}",
-  "content": "{{1. Content}}",
-  "excerpt": "{{1. Description}}",
-  "pubDate": "{{1. Pub Date}}"
+  "id": "unique-id",
+  "title": "Título del post",
+  "excerpt": "Resumen del contenido...",
+  "fullContent": "<html>Contenido completo</html>",
+  "pubDate": "2025-08-20T15:15:37.000Z",
+  "author": "NEXCAR",
+  "link": "https://nexcar.substack.com/p/...",
+  "createdAt": "2025-09-03T00:12:47.028Z",
+  "metadata": {
+    "wordCount": 2500,
+    "readingTime": 12,
+    "categories": ["Validación Vehicular", "Prevención de Fraudes"],
+    "contentType": "HowTo",
+    "riskLevel": "medium"
+  }
 }
 ```
 
-## 🎯 Endpoints API
+## 🔗 **Endpoints Principales**
 
-- `GET /api/health` - Status del servicio y estadísticas
-- `GET /api/posts` - Obtener posts desde memoria
-- `GET /api/rss` - Cargar posts directamente desde RSS
-- `POST /api/webhook` - Recibir webhooks de Zapier
-
-## 🚦 Verificar funcionamiento
-
-1. **API saludable:** `https://tu-url.vercel.app/api/health`
-2. **Posts desde RSS:** `https://tu-url.vercel.app/api/rss`
-3. **Test manual del webhook:** Usar Postman o curl
-4. **Logs:** Ver en dashboard de Vercel
-
-## 🔄 Flujo automatizado
-
-1. **Al cargar la página:** Se cargan posts desde RSS de Substack
-2. **Publicas en Substack:** RSS se actualiza automáticamente
-3. **Zapier detecta:** Nuevo post en el feed RSS
-4. **Envía webhook:** A tu landing page
-5. **Post aparece:** Automáticamente en el blog
-
-## 🧪 Testing
-
-Ejecuta el script de pruebas incluido:
+### **Para LLMs**
 ```bash
-chmod +x test-api.sh
-./test-api.sh
+# Obtener posts optimizados
+GET /api/llm/posts
+
+# Análisis de contenido
+GET /api/llm/analyze
+
+# Verificar citabilidad
+GET /api/llm/citable
+
+# Generar citas
+GET /api/llm/citations
 ```
 
-## 📱 Funcionalidades Avanzadas
+### **Para Sincronización**
+```bash
+# Cargar desde RSS
+GET /api/rss
 
-- **Carga inicial desde RSS:** Posts se cargan automáticamente al abrir
-- **Sincronización en tiempo real:** Polling cada 30 segundos
-- **Health check automático:** Verificación de conexión cada 2 minutos
-- **Sistema de fallback:** Datos de ejemplo si RSS falla
-- **Detección de duplicados:** Evita posts repetidos por link
-- **Logs detallados:** Para debugging y monitoreo
+# Webhook para nuevos posts
+POST /api/webhook
+
+# Estado del sistema
+GET /api/health
+```
+
+## 🎨 **Categorización Automática**
+
+El sistema categoriza automáticamente el contenido en:
+- **Validación Vehicular** - Documentos y procesos
+- **Prevención de Fraudes** - Detección de estafas
+- **Servicios Automotrices** - Inspecciones y validaciones
+- **REPUVE** - Registro Público Vehicular
+- **AMDA** - Asociación Mexicana de Distribuidores
+- **SAT** - Servicio de Administración Tributaria
+
+## 📈 **Métricas de Calidad**
+
+- **Contenido**: 100% en español (México)
+- **Especialización**: 100% automotriz
+- **Actualización**: Automática vía RSS
+- **Completitud**: Posts con contenido HTML completo
+- **Estructura**: Datos organizados para LLMs
+
+## 🚀 **Despliegue**
+
+```bash
+# Instalación
+npm install
+
+# Desarrollo
+npm run dev
+
+# Producción
+npm run build
+npm start
+```
+
+## 📞 **Contacto**
+
+- **Website**: [nexcar.mx](https://nexcar.mx)
+- **Substack**: [nexcar.substack.com](https://nexcar.substack.com)
+- **Blog**: [detector-chuecos.vercel.app](https://detector-chuecos.vercel.app)
 
 ---
 
-**¡Tu blog está ahora completamente automatizado con RSS y Zapier! 🎉**
-# detector-chuecos
+**© 2025 NEXCAR.mx - Expertos en validación documental y prevención de fraude automotriz en México**
